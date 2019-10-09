@@ -9,6 +9,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class Database extends SQLiteOpenHelper {
     public static final String DatabaseName="TM.db";
     public static final String TStudent="Sudent";
+    public static final String Name="Name";
+    public static final String Phone_no="Phone_no";
     public SQLiteDatabase db;
     private Context context;
     public Database(Context context) {
@@ -73,6 +75,21 @@ public String fetchName(){
             ph=cr.getLong(0);
 
         return ph;
+    }
+
+    public boolean check(String name ,Long ph){
+        String Query="select name,phone_no from Student";
+        Cursor cr=db.rawQuery(Query,null);
+        while(cr.moveToNext()){
+            if(name.equals(cr.getString(0))&& ph==(cr.getLong(1)))
+                return true;
+        }
+        return false;
+    }
+    public void deleteStudent(String name,Long ph){
+        //TODO add check for due
+        db.delete(TStudent,(Name + "=" +name +"AND"+ Phone_no+"="+ph),null);
+
     }
 }
 

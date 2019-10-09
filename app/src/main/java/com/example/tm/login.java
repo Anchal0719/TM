@@ -34,7 +34,7 @@ public class login extends AppCompatActivity {
         String id=editText1.getText().toString();
         String pass=editText2.getText().toString();
         Toast.makeText(this,""+id + "  "+pass,Toast.LENGTH_SHORT).show();
-        if(id.equals("a") && pass.equals("a"))
+        if(id.equals("Meena") && pass.equals("8628087622"))
           newActivity();
         else if(id.equals("ID")|| pass.equals(""))
             Toast.makeText(this,"Missing ID/Password",Toast.LENGTH_SHORT).show();
