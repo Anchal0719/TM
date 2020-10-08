@@ -9,12 +9,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class login extends AppCompatActivity {
+import com.example.tm.Database.Database;
 
+public class Login extends AppCompatActivity {
+    public static Database db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        db= new Database(this);
         Button btn =(Button)findViewById(R.id.button);
         btn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -27,14 +31,15 @@ public class login extends AppCompatActivity {
         Intent i= new Intent(this,Options.class);
         startActivity(i);
     }
+
     private void Login()
     {
         EditText editText1=(EditText)findViewById(R.id.editText);
-        EditText editText2=(EditText)findViewById(R.id.editText2);
+        EditText editText2=(EditText)findViewById(R.id.Phone);
         String id=editText1.getText().toString();
         String pass=editText2.getText().toString();
         Toast.makeText(this,""+id + "  "+pass,Toast.LENGTH_SHORT).show();
-        if(id.equals("Meena") && pass.equals("8628087622"))
+        if(id.equals("a") && pass.equals("a"))
           newActivity();
         else if(id.equals("ID")|| pass.equals(""))
             Toast.makeText(this,"Missing ID/Password",Toast.LENGTH_SHORT).show();
